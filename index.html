@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>CRUD SYSTEM</title>
+</head>
+<body>
+    
+    <div class=" my-3 w-75 m-auto">
+        <h2 class="text-white text-center">CRUD SYSTEM</h2>
+
+
+        <div class="inputs">
+            <input oninput="validationName()" type="text" class="is-invalid" id="productName" placeholder="Name">
+            <p id="msgName" class="alert alert-danger w-50 d-none">Invalid Pattern Name 3 or 8 -(A-a)</p>
+            <div class="price">
+                <input onkeyup="sum()" type="number"  id="productPrice" placeholder="price">
+                <input onkeyup="sum()" type="number"  id="productAds" placeholder="ads">
+                <input onkeyup="sum()" type="number"  id="productTaxes" placeholder="taxes">
+                <input onkeyup="sum()" type="number"  id="productDiscount" placeholder="discount">
+                
+                <small id="Total" class="text-white p-1 rounded-3 fw-bold"></small>
+            
+            </div>
+            <input oninput="validationCount()" type="number" id="productCount" placeholder="Count">
+            <p id="msgCount" class="alert alert-danger w-50 d-none ">Invalid Pattern [1-9][0-9]{1,3}</p>
+
+            <div class="form-floating my-1">
+                <input oninput="validationCategory()" list="Category"  type="text"  id="productCategory"  placeholder="Category">
+                <p id="msgCategory" class="alert alert-danger w-50 d-none ">Invalid Pattern (TV|Mobile|Screens|Electronic)</p>
+                <datalist id="Category">
+                    <option value="TV"/>
+                    <option value="Mobile"/>
+                    <option value="Screens"/>
+                    <option value="Electronic"/>
+                </datalist>
+              </div>
+
+              
+              <button id="addBtn" onclick="addProduct()" class="btn btn-danger w-100 rounded-4">Add Product</button>
+              
+              <button id="addUpdate" onclick="updateProduct()" class="btn btn-warning w-100 rounded-4 d-none">Update Product</button>
+
+              <input oninput="searchItem()" type="search" id="searchItem" class="form-control w-50 m-auto my-3" placeholder="Search...">
+
+              
+        </div>
+    </div>
+
+
+    <table class="table  text-center">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Ads</th>
+                <th>taxes</th>
+                <th>discount</th>
+                <th>Count</th>
+                <th>Category</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody id="dataItem">
+            
+        </tbody>
+
+    </table>
+
+    <script src="js/index.js"></script>
+</body>
+</html>
+
